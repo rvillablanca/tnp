@@ -10,8 +10,11 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8123 -classpath %classpath cl.rvillablanca.tnp.TnpApplication</exec.args>
+                <exec.args>-classpath %classpath cl.rvillablanca.tnp.TnpApplication</exec.args>
                 <exec.executable>java</exec.executable>
+                <Env.POSTGRES_URL>jdbc:postgresql://localhost:5432/tnp</Env.POSTGRES_URL>
+                <Env.POSTGRES_USERNAME>postgres</Env.POSTGRES_USERNAME>
+                <Env.POSTGRES_PASSWORD>rodrigo</Env.POSTGRES_PASSWORD>
             </properties>
         </action>
         <action>
@@ -24,7 +27,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8123 -classpath %classpath cl.rvillablanca.tnp.TnpApplication</exec.args>
+                <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath cl.rvillablanca.tnp.TnpApplication</exec.args>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
             </properties>
@@ -39,7 +42,7 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8123 -classpath %classpath cl.rvillablanca.tnp.TnpApplication</exec.args>
+                <exec.args>-classpath %classpath cl.rvillablanca.tnp.TnpApplication</exec.args>
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
