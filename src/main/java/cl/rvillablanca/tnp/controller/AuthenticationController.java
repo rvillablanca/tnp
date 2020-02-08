@@ -13,6 +13,7 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +45,11 @@ public class AuthenticationController extends BaseExceptionHandler {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword());
         Authentication authentication = authenticationProvider.authenticate(token);
         SecurityContextHolder.getContext().setAuthentication(authentication);
+    }
+
+    @GetMapping("/logout")
+    public void logout() {
+        // handled by spring security
     }
 
     public void checkLogin(LoginRequest req) throws RequiredData {

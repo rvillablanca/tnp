@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
@@ -19,6 +20,7 @@ public class TPNAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         ObjectMapper mapper = new ObjectMapper();
+        response.setStatus(HttpStatus.FORBIDDEN.value());
         mapper.writeValue(response.getOutputStream(), new ForbiddenResponse("forbidden access, please login first"));
         response.getOutputStream().flush();
     }

@@ -1,5 +1,6 @@
 package cl.rvillablanca.tnp;
 
+import java.security.Principal;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -15,6 +16,7 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .ignoredParameterTypes(Principal.class)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("cl.rvillablanca.tnp.controller"))
                 .paths(PathSelectors.any())

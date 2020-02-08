@@ -5,6 +5,7 @@ import cl.rvillablanca.tnp.jpa.beans.HistoricalRegister;
 import cl.rvillablanca.tnp.jpa.beans.User;
 import cl.rvillablanca.tnp.jpa.repository.HistoricalRegisterRepository;
 import cl.rvillablanca.tnp.jpa.repository.UserRepository;
+import io.swagger.annotations.ApiParam;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class HistoryController {
     UserRepository userRepository;
 
     @GetMapping("/history")
-    public HistoryResponse findHistory(Principal principal) {
+    public HistoryResponse findHistory(@ApiParam(hidden = true) Principal principal) {
         String username = principal.getName();
         List<String> history = new ArrayList<>();
         User user = userRepository.findByEmail(username);
