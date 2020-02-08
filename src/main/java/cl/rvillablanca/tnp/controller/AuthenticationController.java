@@ -1,7 +1,6 @@
 package cl.rvillablanca.tnp.controller;
 
 import cl.rvillablanca.tnp.controller.beans.LoginRequest;
-import cl.rvillablanca.tnp.controller.beans.BooleanResponse;
 import cl.rvillablanca.tnp.controller.beans.SignInRequest;
 import cl.rvillablanca.tnp.controller.exceptions.InvalidData;
 import cl.rvillablanca.tnp.controller.exceptions.RequiredData;
