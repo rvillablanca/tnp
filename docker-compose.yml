@@ -1,0 +1,18 @@
+version: "3.1"
+
+services:
+  postgres:
+    image: postgres:9
+    environment:
+      - POSTGRES_PASSWORD=tnp
+      - POSTGRES_DB=tnp
+  tnp:
+    image: rvillablanca/tnp:1.0
+    ports: 
+      - "8080:8080"
+    depends_on:
+      - "postgres"
+    environment:
+      - POSTGRES_URL=jdbc:postgresql://postgres:5432/tnp
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=tnp
