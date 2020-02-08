@@ -1,6 +1,6 @@
 #### Note
 
-In order to run this app you should have `docker` nad `docker-compose` already installed in your system.
+In order to run this app you should have `docker` and `docker-compose` already installed in your system.
 
 #### Run
 
